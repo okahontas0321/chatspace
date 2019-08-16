@@ -1,0 +1,59 @@
+.chat
+  .chat__group
+    グループを作成しました
+  .chat__side
+    .chat__side--header
+      test-user
+      .chat__side--header--contents
+        = fa_icon 'edit', class: "contents__btn--icon"
+      .chat__side--header--set
+        = fa_icon 'cog', class: "contents__btn--icon"
+    .chat__side--list
+      .chat__side--list--g
+        test-group
+        %br
+        .chat__side--list--g--a
+          こんにちは
+      .chat__side--list--g
+        test-group
+        %br
+        .chat__side--list--g--a
+          こんにちは
+      .chat__side--list--g
+        test-group
+        %br
+        .chat__side--list--g--a
+          こんにちは
+  .chat__main
+    .chat__main--header
+      test-group
+      .chat__main--header--members
+        Members: okada okapon
+      .chat__main--header--contents
+        Edit
+    .chat__main--list
+      .chat__main--list--g
+        test-user
+        .chat__main--list--g--day
+          2019/08/11 21:04:55
+        .chat__main--list--g--a
+          こんにちは
+      .chat__main--list--g
+        test-user
+        .chat__main--list--g--day
+          2019/08/11 21:04:55
+        .chat__main--list--g--a
+          こんにちは
+      .chat__main--list--footer
+        %form
+          .chat__main--list--footer--in
+            type a message
+            .chat__main--list--footer--in--file
+              %label{ for: "datafile" , class: "label"}
+                = fa_icon 'picture-o', class: 'icon'
+                %input{ id: "datafile", name: "datafile", type: "file"}
+      .chat__main--list--footer--send
+        .chat__main--list--footer--send--text
+          Send
+            
+  
