@@ -2,12 +2,7 @@
   height: 100vh;
   background-color: blue;
  &__group{
-   height: 28px;
-   width: 100%;
-   text-align: center;
-   font-size: 18px;
-   background-color: #38AE;
-   color: #ffffff;
+   
  }
  &__side{
    float: left;
@@ -37,7 +32,7 @@
    &--list{
      position: fixed;
      float: left;
-     height: 660px;
+     height: 100%;
      width: 300px;
      background-color: #253141;
      &--g{
@@ -133,7 +128,7 @@
      }
    }
    &--list{
-     height: 590px;
+     height: 100%;
      background-color: #ffffff;
      &--g{
       position: relative;
