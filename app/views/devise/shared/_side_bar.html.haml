@@ -1,0 +1,17 @@
+.chat__side
+  .chat__side--header
+    .chat__side--header--name
+    = current_user.name
+    .chat__side--header--contents
+      = link_to new_group_path do
+        = fa_icon 'pencil-square-o', class: 'chat__side--header--contents'
+    .chat__side--header--set
+      = link_to edit_user_path(current_user) do
+        = fa_icon 'cog', class: 'chat__side--header--set'
+  .chat__side--list
+    - current_user.groups.each do |group|
+      = link_to group_messages_path(group) do
+        .chat__side--list--g
+          = group.name
+          .chat__side--list--g--a
+            = group.show_last_message

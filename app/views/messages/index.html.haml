@@ -1,31 +1,5 @@
 .chat
-  .chat__group
-  .chat__side
-    .chat__side--header
-      = current_user.name
-      .chat__side--header--contents
-        = link_to new_group_path do
-          = fa_icon 'pencil-square-o', class: 'icon'
-      .chat__side--header--set
-        = link_to edit_user_path(current_user) do
-          = fa_icon 'cog', class: 'icon'
-    .chat__side--list
-      - current_user.groups.each do |group|
-        = link_to group_messages_path(group) do
-          .chat__side--list--g
-            = group.name
-            .chat__side--list--g--a
-              メッセージはまだありません。
-      -# .chat__side--list--g
-      -#   test-group
-      -#   %br
-      -#   .chat__side--list--g--a
-      -#     こんにちは
-      -# .chat__side--list--g
-      -#   test-group
-      -#   %br
-      -#   .chat__side--list--g--a
-      -#     こんにちは
+  = render :partial => 'devise/shared/side_bar.html'
   .chat__main
     .chat__main--header
       test-group
@@ -33,29 +7,15 @@
         Members: okada okapon
       .chat__main--header--contents
         Edit
-    .chat__main--list
-      .chat__main--list--g
-        test-user
-        .chat__main--list--g--day
-          2019/08/11 21:04:55
-        .chat__main--list--g--a
-          こんにちは
-      .chat__main--list--g
-        test-user
-        .chat__main--list--g--day
-          2019/08/11 21:04:55
-        .chat__main--list--g--a
-          こんにちは
-      .chat__main--list--footer
-        %form
-          .chat__main--list--footer--in
-            type a message
-            .chat__main--list--footer--in--file
-              %label{ for: "datafile" , class: "label"}
-                = fa_icon 'picture-o', class: 'icon'
-                %input{ id: "datafile", name: "datafile", type: "file"}
-      .chat__main--list--footer--send
-        .chat__main--list--footer--send--text
-          Send
-            
-  
+    .chat__main--body   
+      = render partial: 'message', collection: @messages
+
+    .chat__main--footer
+      .chat__main--footer--in
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: 'chat__main--footer--in', placeholder: 'type a message'
+          .chat__main--footer--in--file
+            = f.label :image, class: 'chat__main--footer--in--file' do
+              = fa_icon 'picture-o', class: 'icon'
+              = f.file_field :image, class: 'hidden'
+          = f.submit 'Send', class: 'chat__main--send'
