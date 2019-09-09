@@ -2,9 +2,10 @@
   = render :partial => 'devise/shared/side_bar.html'
   .chat__main
     .chat__main--header
-      test-group
+      = @group.name
       .chat__main--header--members
-        Members: okada okapon
+        - @members.each do |member|
+          = member.name
       .chat__main--header--contents
         Edit
     .chat__main--body   
