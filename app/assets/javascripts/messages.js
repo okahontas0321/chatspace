@@ -38,7 +38,7 @@ $(function(){
     .done(function(message){
       var html = buildMessage(message);
       $('.chat__main--body').append(html)
-      $("#message_content").val('');
+      $("#new_message")[0].reset();
       $(".chat__main--send").prop('disabled', false);
       $('.chat__main--body').animate({scrollTop: $('.chat__main--body')[0].scrollHeight},'fasts')
       }
