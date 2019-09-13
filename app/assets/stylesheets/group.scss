@@ -76,11 +76,14 @@ li {
     &--right {
       float: right;
       width: 70%;
+      padding-top: 15px;
     }
   }
 }
 
 .chat-group-user {
+  float: right;
+  width: 600px;
   padding: 0 15px;
   line-height: 50px;
   font-size: 14px;

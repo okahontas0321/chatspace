@@ -1,7 +1,7 @@
 .chat__side
   .chat__side--header
     .chat__side--header--name
-    = current_user.name
+      = current_user.name
     .chat__side--header--contents
       = link_to new_group_path do
         = fa_icon 'pencil-square-o', class: 'chat__side--header--contents'
