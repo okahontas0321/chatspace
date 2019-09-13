@@ -7,7 +7,7 @@
         - @members.each do |member|
           = member.name
       .chat__main--header--contents
-        Edit
+        = link_to "Edit", edit_group_path(params[:group_id]), method: :get
     .chat__main--body   
       = render partial: 'message', collection: @messages
 
