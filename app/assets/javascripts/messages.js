@@ -2,7 +2,7 @@ $(function(){
   function buildMessage(message){
     var content = message.content ? `${ message.content }` : "";
     var img = message.image ? `<img src= ${ message.image }>` : "";
-    var html = `<div class="chat__main--list data-id="${message.id}>
+    var html = `<div class="chat__main--list" data-message-id="${message.id}">
                     <div class="chat__main--list--g">
                         <div class="chat__main--list--g--roup">
                         ${message.user_name}
@@ -47,4 +47,31 @@ $(function(){
       alert('エラー');
     })
   })
+  
+  var reloadMessages = function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      var last_message_id = $('.chat__main--list').filter(":last").data('message-id')
+      $.ajax({
+        url: "api/messages",
+        type: 'get',
+        dataType: 'json',
+        data: {last_id: last_message_id}
+      })
+
+      .done(function(messages) {
+        var insertHTML = '';
+        messages.forEach(function(message){
+          insertHTML += buildMessage(message);
+          $('.chat__main--body').append(insertHTML);
+          $('.chat__main--body').animate({scrollTop: $('.chat__main--body')[0].scrollHeight}, 'slow');
+        })
+      })
+      
+      .fail(function() {
+        alert('自動更新に失敗しました');
+      });
+
+    }
+  };
+  setInterval(reloadMessages, 5000);
 });
