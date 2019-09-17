@@ -63,7 +63,7 @@ $(function(){
         messages.forEach(function(message){
           insertHTML += buildMessage(message);
           $('.chat__main--body').append(insertHTML);
-          $('.chat__main--body').animate({scrollTop: $('.chat__main--body')[0].scrollHeight}, 'slow');
+          $('.chat__main--body').animate({scrollTop: $('.chat__main--body')[0].scrollHeight}, 'fast');
         })
       })
       
