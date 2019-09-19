@@ -6,12 +6,12 @@
    float: left;
    height: 100%;
    width: 300px;
-   background-color:#253141;
+   background-color:#2f3e51;
    overflow: scroll;
    &--header{
      height: 100px;
      width: 300px;
-     background-color: #253141;
+     background-color: #253140;
      font-weight: bold;
      color: #ffffff;
      display: flex;
@@ -32,13 +32,13 @@
      float: left;
      height: calc(100% - 100px);
      width: 300px;
-     background-color: #253141;
+     background-color: #2f3e51;
      position: fixed;
      &--g{
       position: relative;
       padding: 0 20px;
       height: 100px;
-      background-color: #253141;
+      background-color: #2f3e51;
       font-weight: bold;
       font-size: 15px;
       color: #ffffff;
@@ -95,12 +95,11 @@
    }
   
   &--list{
-    background-color: #ffffff;
+    background-color: #fafafa;
     padding-top: 35px; 
     &--g{
         &--roup{
         padding: 0 20px;
-        background-color: #ffffff;
         font-weight: bold;
         font-size: 15px;
         color: #253141;
@@ -162,6 +161,6 @@
 .chat__main--body{
   height: calc(100vh - 190px);
   padding: 100px 40px;
-  background-color: #ffffff;
+  background-color: #fafafa;
   overflow: scroll;
 }
